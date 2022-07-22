@@ -6,6 +6,7 @@ const startSection = document.getElementById("start")
 const box1 = document.getElementById("box1")
 const box2 = document.getElementById("box2")
 const box3 = document.getElementById("box3")
+const box4 = document.getElementById("box4")
 const rewardImage = document.getElementById("imgReward")
 
 const player = new Player()
@@ -14,6 +15,9 @@ let default_option = ['😍', '🤣', '😱']
 box1.textContent = default_option[0]
 box2.textContent = default_option[1]
 box3.textContent = default_option[2]
+box4.textContent = default_option[0]
+box5.textContent = default_option[2]
+
 
 function dice() {
   let gacha = []
@@ -41,7 +45,7 @@ function reward() {
 }
 
 function winner() {
-  if (box1.textContent == box2.textContent && box1.textContent == box3.textContent) {
+  if (box1.textContent == box2.textContent && box1.textContent == box3.textContent && box1.textContent == box4.textContent) {
     reward()
     location.href = "#reward"
   } else {
@@ -56,6 +60,8 @@ function start() {
     box1.textContent = result[0]
     box2.textContent = result[1]
     box3.textContent = result[2]
+    box4.textContent = result[0]
+    box5.textContent = result[2]
   }, 70)
 
   //ketika
@@ -81,8 +87,10 @@ onload = function () {
 function register() {
   player.username = username.value
   player.register
+  document.getElementById("demo").innerHTML=player.username;
 }
 
 function logout() {
   player.logout
 }
+
